@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 
 from flask import Flask, jsonify, request, abort, make_response
 import stepper_commands
 
@@ -55,4 +56,4 @@ def not_found(error):
     return make_response(jsonify({'error':'That ID is invalid'}),404)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5001)

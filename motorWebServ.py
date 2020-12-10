@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 
 from flask import Flask, jsonify, request, abort, make_response
 import servo_commands
 
@@ -10,8 +11,6 @@ light={'power':False}
 @app.route('/',methods=['GET', 'POST','PUT','DELETE'])
 def index():
     return "You have made it to the motor control machine!"
-
-
 
 
 #show the location of the motor
@@ -55,4 +54,4 @@ def not_found(error):
     return make_response(jsonify({'error':'That ID is invalid'}),404)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5001)
